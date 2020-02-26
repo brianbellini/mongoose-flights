@@ -7,7 +7,7 @@ module.exports ={
 }
 
 function newFlight(req, res) {
-    res.render('flights/new', { title: 'New Flight'});
+    res.render('flights/new', { title: 'New Flight', airports: Flight.AIRPORT_NAMES});
 }
 
 function create(req, res) {
