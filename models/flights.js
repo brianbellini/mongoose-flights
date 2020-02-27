@@ -26,7 +26,9 @@ const flightsSchema = new Schema({
             }
     },
     airport: {  type: String,
-        enum: AIRPORT_NAMES},
+                enum: AIRPORT_NAMES,
+
+    },
 
     destinations: [destinationSchema],
 

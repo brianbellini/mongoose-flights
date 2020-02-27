@@ -3,23 +3,25 @@
 <h2>Enter a New Flight</h2>
 <form action="/flights" method="POST">
 	<label>Airline:
-	  <input type="text" name="airline">
-	</label><br>
+	  <input class="float-right" type="text" name="airline">
+	</label><br><br>
 	<label>Flight Number:
-	  <input type="text" name="flightNo">
-	</label><br>
+	  <input class="float-right" type="text" name="flightNo">
+	</label><br><br>
     <label>Flight Date:
-        <input type="datetime-local">
+        <input class="float-right" type="datetime-local">
+	</label><br><br>
+	<label>Airport:
 	</label>
-	<label>Airport
-		<select name="airport">
+		<select class="float-right" name="airport">
 			<option value="AUS">AUS</option>
 			<option value="DAL">DAL</option>
 			<option value="LAX">LAX</option>
 			<option value="SAN">SAN</option>
 			<option value="SEA">SEA</option>
 		</select>
-	<input type="submit" value="Add Flight">
+		<br><br><br>
+	<input class="float-right" type="submit" value="Add Flight">
 </form>
 
 <%- include('../partials/footer') %>

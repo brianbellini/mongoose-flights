@@ -4,6 +4,8 @@ module.exports ={
     new: newFlight,
     create,
     index,
+    show,
+    update,
 }
 
 function newFlight(req, res) {
@@ -25,3 +27,22 @@ function index(req, res) {
       res.render('flights/index', { title: 'All Flights', flights });
     });
   }
+
+function show(req, res) {
+  Flight.findById(req.params.id, function(err, flight) {
+    res.render('flights/show', {title: `Flight`, idx: req.params.id, flight})
+  })
+}
+
+function update(req, res) {
+  console.log('============================================')
+  console.log(req.params.id);
+  console.log(req.body);
+  console.log('============================================')
+  Flight.findByIdAndUpdate(
+    {_id: req.params.id},
+    {destination: [req.body]}), function(err, flight) {
+      console.log(flight);
+      res.render('flights/show', {title: `Flight`, idx: req.params.id, flight})
+    }
+}
