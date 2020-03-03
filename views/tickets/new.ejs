@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='../../../stylesheets/style.css' />
+  <title><%= title %></title>
+</head>
+<body>
+  <nav>
+    <a href="/flights/new" <%- title === 'Add Flight' ? 'class="active"' : '' %>>ADD FLIGHT</a>
+    <a href="/flights" <%- title === 'All Flights' ? 'class="active"' : '' %>>ALL FLIGHTS</a>
+  </nav>
+  <main>
+    <h1><%= title %></h1>
+
+<section class="list" id="ticket-form">
+	<h2>Enter a New Ticket</h2>
+	<form  action="/flights/<%= flight._id %>/tickets" method="POST">
+		<label>Seat (A1 - F99):
+			<input class="float-right" name="seat" required pattern="[A-F][1-9]\d?">
+		</label><br><br>
+		<label>Price:
+		<input class="float-right" type="text" name="price">
+		</label>
+			<input  type="hidden" value="<%= flight._id %>" name="flight">
+			<br><br><br>
+		<input class="float-right" type="submit" value="Add Ticket">
+	</form>
+</section>
+
+<%- include('../partials/footer') %>
